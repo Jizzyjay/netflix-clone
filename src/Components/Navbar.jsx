@@ -1,11 +1,10 @@
+import { signOut } from "firebase/auth";
 import React, { useState } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../assets/logo.png";
-import { FaSearch, FaPowerOff } from "react-icons/fa";
-import { firebaseAuth } from "../Utils/firebase-config";
-
+import { firebaseAuth } from "../utils/firebase-config";
+import { FaPowerOff, FaSearch } from "react-icons/fa";
 export default function Navbar({ isScrolled }) {
   const [showSearch, setShowSearch] = useState(false);
   const [inputHover, setInputHover] = useState(false);
@@ -15,12 +14,6 @@ export default function Navbar({ isScrolled }) {
     { name: "Movies", link: "/movies" },
     { name: "My List", link: "/mylist" },
   ];
-
-  const navigate = useNavigate();
-
-  onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (!currentUser) navigate("/login");
-  });
 
   return (
     <Container>
@@ -73,7 +66,7 @@ export default function Navbar({ isScrolled }) {
 
 const Container = styled.div`
   .scrolled {
-    background-color: black;
+    background-color: #000;
   }
   nav {
     position: sticky;
@@ -99,7 +92,7 @@ const Container = styled.div`
         gap: 2rem;
         li {
           a {
-            color: white;
+            color: #fff;
             text-decoration: none;
           }
         }
@@ -133,7 +126,7 @@ const Container = styled.div`
             outline: none;
           }
           svg {
-            color: white;
+            color: #fff;
             font-size: 1.2rem;
           }
         }
@@ -144,14 +137,14 @@ const Container = styled.div`
           transition: 0.3s ease-in-out;
           background-color: transparent;
           border: none;
-          color: white;
+          color: #fff;
           &:focus {
             outline: none;
           }
         }
       }
       .show-search {
-        border: 1px solid white;
+        border: 1px solid #fff;
         background-color: rgba(0, 0, 0, 0.6);
         input {
           width: 100%;

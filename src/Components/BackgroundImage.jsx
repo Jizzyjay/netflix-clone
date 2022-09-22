@@ -1,11 +1,11 @@
 import React from "react";
-import bg from "../assets/login.jpg";
 import styled from "styled-components";
+import background from "../assets/login.jpg";
 
-export default function BgImage() {
+export default function BackgroundImage() {
   return (
     <Container>
-      <img src={bg} alt="background" />
+      <img src={background} alt="background" />
     </Container>
   );
 }

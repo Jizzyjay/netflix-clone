@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Navbar from "../Components/Navbar";
+import Navbar from "../components/Navbar";
 import backgroundImage from "../assets/home.jpg";
 import MovieLogo from "../assets/homeTitle.webp";
 
 import { onAuthStateChanged } from "firebase/auth";
-import { firebaseAuth } from "../Utils/firebase-config"; 
+import { firebaseAuth } from "../utils/firebase-config";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchMovies, getGenres } from "../Store";
+import { fetchMovies, getGenres } from "../store";
 import { FaPlay } from "react-icons/fa";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import Slider from "../Components/Slider";
-
+import Slider from "../components/Slider";
 function Netflix() {
   const [isScrolled, setIsScrolled] = useState(false);
   const movies = useSelector((state) => state.netflix.movies);
@@ -75,7 +74,7 @@ function Netflix() {
 }
 
 const Container = styled.div`
-  background-color: #000;
+  background-color: black;
   .hero {
     position: relative;
     .background-image {
@@ -113,7 +112,7 @@ const Container = styled.div`
           }
           &:nth-of-type(2) {
             background-color: rgba(109, 109, 110, 0.7);
-            color: #fff;
+            color: white;
             svg {
               font-size: 1.8rem;
             }
